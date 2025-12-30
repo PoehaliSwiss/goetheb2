@@ -3,4 +3,6 @@ structure:
   - title: Introduction
     path: /introduction
   - title: Module 1
-    items: []
+    items:
+      - title: Lesson 1
+        path: /module-1/lesson-1
