@@ -24,3 +24,5 @@ structure:
     items:
       - title: Lesson 9-10
         path: /module-2/lesson-9
+      - title: Lesson 11
+        path: /module-2/lesson-11
