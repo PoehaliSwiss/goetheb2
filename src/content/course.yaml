@@ -1,2 +1,4 @@
 title: Goethe B2
-structure: []
+structure:
+  - title: Introduction
+    path: /introduction
