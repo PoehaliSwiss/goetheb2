@@ -1,14 +1,36 @@
 import React, { useState, useMemo, useCallback } from 'react';
 
-// Helper to extract text from ReactNode
+// Helper to extract text from ReactNode, preserving line breaks
 export function getTextFromChildren(node: React.ReactNode): string {
     if (typeof node === 'string') return node;
     if (typeof node === 'number') return node.toString();
-    if (Array.isArray(node)) return node.map(getTextFromChildren).join('');
+    if (Array.isArray(node)) {
+        return node.map((child, idx) => {
+            const text = getTextFromChildren(child);
+            // Add newline after block elements in arrays (except last)
+            if (React.isValidElement(child)) {
+                const type = child.type;
+                // Check for block-level elements that should have newlines
+                if (type === 'p' || type === 'div' || type === 'li' || type === 'br') {
+                    return text + (idx < node.length - 1 ? '\n' : '');
+                }
+            }
+            return text;
+        }).join('');
+    }
     if (React.isValidElement(node)) {
+        const type = node.type;
+        // Handle br element
+        if (type === 'br') return '\n';
+
         const props = node.props as { children?: React.ReactNode };
         if (props.children) {
-            return getTextFromChildren(props.children);
+            const content = getTextFromChildren(props.children);
+            // Add trailing newline for block elements
+            if (type === 'p' || type === 'div') {
+                return content + '\n';
+            }
+            return content;
         }
     }
     return '';
