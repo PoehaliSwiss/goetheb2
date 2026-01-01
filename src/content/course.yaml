@@ -36,10 +36,10 @@ structure:
         path: /module-3/lesson-14
       - title: Lesson 15
         path: /module-3/lesson-15
-  - title: Module 3
-    items:
       - title: Lesson 16
         path: /module-3/lesson-16
+  - title: Module 3
+    items:
       - title: Lesson 17
         path: /module-3/lesson-17
       - title: Lesson 18
