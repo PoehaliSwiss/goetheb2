@@ -128,6 +128,12 @@
     </url>
     
     <url>
+        <loc>https://akkem.study/module-4/lesson-21</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://akkem.study/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
